@@ -227,7 +227,7 @@ header .subHeader .headerInner .gnb-bar .gnb-list.hover_menu.on {
 							<!-- 이미지 미리보기 -->
 							<div id='image_preview'>
 								<h4>미리보기</h4>
-								<input type='file' id='btnAtt' multiple='multiple' name="file" />
+								<input type='file' id='btnAtt' multiple='multiple' name="file" required/>
 
 								<div id='att_zone'
 									data-placeholder='파일을 첨부 하려면 파일 선택 버튼을 클릭하거나 파일을 드래그앤드롭 하세요.'></div>
@@ -242,13 +242,13 @@ header .subHeader .headerInner .gnb-bar .gnb-list.hover_menu.on {
 									<div class="form-group row">
 										<div class="col">
 											<input type="text" class="form-control" id="title"
-												name="communityTitle" placeholder="제목을 입력해주세요.">
+												name="communityTitle" placeholder="제목을 입력해주세요." required>
 												
 										</div>
 									</div>
 									<textarea class="form-control" name="communityContent" id="content"
 										rows="8" aria-required="true" aria-label="Message"
-										placeholder="내용을 입력해주세요."></textarea>
+										placeholder="내용을 입력해주세요." required></textarea>
 								</div>
 							</div>
 							<div class="row text-center">
@@ -419,22 +419,28 @@ header .subHeader .headerInner .gnb-bar .gnb-list.hover_menu.on {
 		return false;
 	}
 }; */
- $('#writeDaily-btn').click(function(){
-	 if($('#btnAtt').val() == ""){
-		 alert('이미지를 1장 이상 등록해주세요.')
-		 return false
-	 } else if {
-		 ($('#title').val() == "") {
-			 alert('제목을 입력해주세요.')
-			 return false
-		 } else if {
-			 ($('#content').val() == "") {
-				 alert('내용을 입력해주세요.')
-				 return false
-			 }
+ $('#writeDaily-btn').click(function(e){
+/* 	 if($('#btnAtt').val() == ""){
+		e.preventDefault()
+		 alert('이미지를 1장 이상 등록해주세요.');
+		 
+	 } else if ($('input[name="communityTitle"]').val() == "") {
+		 e.preventDefault()
+			 alert('제목을 입력해주세요.');
+			 
+		 } else if ($('textarea[name="communityContent"]').val() == "") {
+			 e.preventDefault()
+				 alert('내용을 입력해주세요.'); 
+			 
 		 }
-	 }
- });   
+	 }   */
+/* if($('#btnAtt').val() == "" || $('input[name="communityTitle"]').val() == "" || $('textarea[name="communityContent"]').val() == ""){
+	e.preventDefault()
+	alert('내용을 입력해주세요.')
+} 
+ */
+
+ });
  
 	 
 </script>
