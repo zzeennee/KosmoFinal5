@@ -254,7 +254,7 @@ header .subHeader .headerInner .gnb-bar .gnb-list.hover_menu.on {
 							<div class="row text-center">
 								<div class="col" id="btn-group">
 									<a href="daily" id="wrtieDaily-cancle">취소</a>
-									<button id="writeDaily-btn" type="submit" onclick="return formCheck();">등록</button>
+									<button id="writeDaily-btn" type="submit">등록</button>
 								</div>
 							</div>
 						</form>
@@ -385,31 +385,31 @@ header .subHeader .headerInner .gnb-bar .gnb-list.hover_menu.on {
 /* 이미지 다중 업로드 */
 		
 /* 글작성 유효성 검사 */
-function formCheck(){
+/* function formCheck(){
 	
-	var image = document.forms[0].file.value;
-	var title = document.forms[0].communityTitle.value;
-	var content = document.forms[0].communityContent.value;
+	var image = $('#btnAtt').val();
+	var title = $('input[name="communityTitle"]').val();
+	var content = $('input[name="communityContent"]').val();
 	
 	if(image==null) {
 		alert('사진을 등록하세요.')
 		document.communityForm.file.focus();
 		return false;
-	}
+	} */
 	
 	/* 제목 길이 체크 */
-	if (title.length < 2) {
+/* 	if (title.length < 2) {
 		alert('제목은 최소 2자리 이상이어야 합니다.');
-		document.communityForm.communityTitle.focus();
+		$('input[name="communityTitle"]').focus();
 		return false;
 	} else if (title.length > 20) {
 		alert('제목은 최대 20자리 이하이어야 합니다.');
-		document.communityForm.communityTitle.focus();
+		$('input[name="communityTitle"]').focus();
 		return false;
-	}
+	} */
 	
 	/* 내용 길이 체크 */
-	if (content.length < 5) {
+/* 	if (content.length < 5) {
 		alert('내용은 최소 5자리 이상이어야 합니다.');
 		document.communityForm.communityContent.focus();
 		return false;
@@ -418,8 +418,23 @@ function formCheck(){
 		document.communityForm.communityContent.focus();
 		return false;
 	}
-};
-    
+}; */
+ $('#writeDaily-btn').click(function(){
+	 if($('#btnAtt').val() == ""){
+		 alert('이미지를 1장 이상 등록해주세요.')
+		 return false
+	 } else if {
+		 ($('#title').val() == "") {
+			 alert('제목을 입력해주세요.')
+			 return false
+		 } else if {
+			 ($('#content').val() == "") {
+				 alert('내용을 입력해주세요.')
+				 return false
+			 }
+		 }
+	 }
+ });   
  
 	 
 </script>
