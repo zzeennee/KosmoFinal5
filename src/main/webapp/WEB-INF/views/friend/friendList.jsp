@@ -88,8 +88,6 @@
 	margin: 0;
 	white-space: inherit;
 }
-
-
 </style>
 
 </head>
@@ -165,7 +163,9 @@
 						</a>
 					</div>
 				</div>
-
+				<form action="getUserInfo" id="frm">
+					<input type="hidden" name="userEmail" value="" id="userEmail" />
+				</form>
 				<!-- Default box -->
 				<div class="card card-solid">
 					<div class="card-body pb-0">
@@ -210,8 +210,8 @@
 																class="fa-solid fa-trash-can"></i>
 															</a> <a href="#" class="btn btn-sm bg-teal"> <i
 																class="fa-solid fa-ban ban"></i>
-															</a> <a href="#" class="btn btn-sm btn-primary"> <i
-																class="fas fa-user"></i>상세보기
+															</a> <a href="" class="btn btn-sm btn-primary info"
+																content="${list[i].email }"> <i class="fas fa-user"></i>상세보기
 															</a>
 														</div>
 													</div>
@@ -219,6 +219,9 @@
 											</div>
 										</c:forEach>
 									</c:when>
+
+
+
 									<c:when test="${count <page*9 }">
 										<c:forEach begin="${page*9-9}" end="${count-1}" var="i">
 											<div
@@ -252,8 +255,8 @@
 																class="fa-solid fa-trash-can"></i>
 															</a> <a href="#" class="btn btn-sm bg-teal"> <i
 																class="fa-solid fa-ban ban"></i>
-															</a> <a href="/friend/friendProfile" class="btn btn-sm btn-primary"> <i
-																class="fas fa-user"></i>상세보기
+															</a> <a class="btn btn-sm btn-primary info"> <i
+																class="fas fa-user" content="${list[i].email}"></i>상세보기
 															</a>
 														</div>
 													</div>
@@ -265,7 +268,7 @@
 							</c:if>
 							<!-- 친구가 없는 경우 -->
 							<c:if test="${count == 0 }">
-								
+
 								<div class="col-12 col-md-6 px-0 px-md-5 my-4">
 									<div
 										class="lana_service type-lana_service card service-card bg-transparent text-center h-100">
@@ -282,14 +285,14 @@
 										<div class="card-footer pb-5 animated fadeInUp"
 											data-scroll-animate="fadeInUp">
 											<p class="card-text">
-												<a href="/friend/friendFind" class="more-link card-link">친구 만들러 가기<i
-													class="lana-icon-arrow-right text-primary"></i>
+												<a href="/friend/friendFind" class="more-link card-link">친구
+													만들러 가기<i class="lana-icon-arrow-right text-primary"></i>
 												</a>
 											</p>
 										</div>
 									</div>
 								</div>
-								
+
 							</c:if>
 
 
@@ -379,7 +382,12 @@
 	$('#friendChat').click(function(){
 		$('#friendChating').submit()
 	})
-
+	$('.info').click(function(e){
+		e.preventDefault()
+		$('#userEmail').val($(this).attr('content'))
+		$('#frm').submit()
+	})
+									
 	</script>
 </body>
 </html>

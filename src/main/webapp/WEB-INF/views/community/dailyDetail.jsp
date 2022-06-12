@@ -361,12 +361,12 @@ footer {
 							<div class="item">
 								<h3>${community[0].community.user.userNickname}</h3>
 							</div>
-							<div class="item" id="fa-user-plus">
+							<!-- <div class="item" id="fa-user-plus">
 								<a><i class="fa-solid fa-user-plus"></i></a>
 							</div>
 							<div class="item" id="fa-user-check">
 								<a><i class="fa-solid fa-user-check"></i></a>
-							</div>
+							</div> -->
 
 						</div>
 						<hr>
@@ -395,8 +395,8 @@ footer {
 												</c:otherwise>
 											</c:choose>
 										</c:if>
-										<span class="item"><i
-											class="fa-regular fa-comment-dots"></i></span>
+										<!-- <span class="item"><i
+											class="fa-regular fa-comment-dots"></i></span> -->
 									</div>
 									<button class="item" id="siren">
 										<img class="siren" src="../../img/siren.png">

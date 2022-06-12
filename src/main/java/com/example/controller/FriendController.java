@@ -26,6 +26,7 @@ public class FriendController {
 	
 	@Autowired
 	private ChatingService cservice;
+	 
 
 	@RequestMapping("/friendList")
 	public void friendList(Integer page,Model m,HttpSession session) {
@@ -45,8 +46,9 @@ public class FriendController {
 	}
 	
 	@RequestMapping("/friendProfile")
-	public void friendProfile(Model m) {
-		m.addAttribute("kindList", service.getDogList());
+	public void friendProfile(UserVO vo,Model m) {
+		//m.addAttribute("kindList", service.getDogList());
+		m.addAttribute("userInfo", service.getUserInfo(vo));
 	}
 
 	@RequestMapping("/friendRequestList")

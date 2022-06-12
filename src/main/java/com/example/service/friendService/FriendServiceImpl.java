@@ -71,4 +71,9 @@ public class FriendServiceImpl implements FriendService {
 		
 		return list;
 	}
+	
+	//친구 프로필 띄우기
+	public UserVO getUserInfo(UserVO vo) {
+		return userRepo.findById(vo.getUserEmail()).get();
+	}
 }

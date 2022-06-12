@@ -123,6 +123,7 @@
   </aside>
 		<!-- /.sidebar -->
 		<div class="content-wrapper">
+		<input type="hidden" value="">
 			<!-- 내용 넣는 곳 -->
 			<div class="card-body box-profile">
 				<div class="text-center">
@@ -152,19 +153,19 @@
 												<div class="form-group row">
 													<label for="inputName" class="col-sm-2 col-form-label">닉네임</label>
 													<div class="col-sm-10">
-														<input type="text" class="form-control" name="frindNickname">
+														<input type="text" class="form-control" value="${list[i].nickName }">
 															
 													</div>
 												</div>
 												<div class="form-group row">
-													<label for="inputEmail" class="col-sm-2 col-form-label">견종선택</label>
+													<label for="inputEmail" class="col-sm-2 col-form-label">견종</label>
 													<div class="col-sm-10">
-														<select class="form-control" style="float: left;">
+														<%-- <select class="form-control" style="float: left;">
 															<option>견종 선택</option>
 															<c:forEach var="vo" items="${kindList}">
 																<option>${vo.dogKind}</option>
 															</c:forEach>
-														</select>
+														</select> --%>
 													</div>
 												</div>
 												<div class="form-group row">
