@@ -150,13 +150,14 @@
 										
 										<div class="active tab-pane" id="settings">
 											<form class="form-horizontal">
+														<input type="hidden" value="${getUserInfoList[0].user.userEmail}">	
 												<div class="form-group row">
 													<label for="inputName" class="col-sm-2 col-form-label">닉네임</label>
 													<div class="col-sm-10">
-														<input type="text" class="form-control" value="${list[i].nickName }">
-															
+														<input type="text" class="form-control" value="${getUserInfoList[0].user.userNickname}">
 													</div>
 												</div>
+												<c:forEach var="vo" items="${getUserInfoList}">
 												<div class="form-group row">
 													<label for="inputEmail" class="col-sm-2 col-form-label">견종</label>
 													<div class="col-sm-10">
@@ -166,20 +167,21 @@
 																<option>${vo.dogKind}</option>
 															</c:forEach>
 														</select> --%>
+														<input type="text" class="form-control" value="${vo.petVariety }">
 													</div>
 												</div>
 												<div class="form-group row">
 													<label for="inputExperience"
 														class="col-sm-2 col-form-label">반려견 이름</label>
 													<div class="col-sm-10">
-														<input type="text" class="form-control" inputmode="text">
+														<input type="text" class="form-control" inputmode="text" value="${vo.petName }">
 													</div>
 												</div>
 												<div class="form-group row">
 													<label for="inputSkills" class="col-sm-2 col-form-label">반려견
 														몸무게</label>
 													<div class="col-sm-10">
-														<input type="tel" class="form-control" id="inputSkills">
+														<input type="tel" class="form-control" id="inputSkills" value="${vo.petWeight }">
 															
 													</div>
 												</div>
@@ -187,23 +189,25 @@
 													<label for="inputSkills" class="col-sm-2 col-form-label">반려견
 														성별</label>
 													<div>
-														<button class="btn btn-modify btn-sm boy"
+														<!-- <button class="btn btn-modify btn-sm boy"
 															style="background-color: #F8b03a; color: white; margin-left: 15px;">남아</button>
 														<button class="btn btn-modify btn-sm girl"
-															style="background-color: #F8b03a; color: white;">여아</button>
+															style="background-color: #F8b03a; color: white;">여아</button> -->
+															<input type="text" class="form-control" value="${vo.petGender }">
 													</div>
 												</div>
 												<div class="form-group row">
 													<label for="inputSkills" class="col-sm-2 col-form-label">중성화
 														여부</label>
 													<div>
-														<button class="btn btn-modify btn-sm yes"
+														<!-- <button class="btn btn-modify btn-sm yes"
 															style="background-color: #F8b03a; color: white; margin-left: 15px;">했어요</button>
 														<button class="btn btn-modify btn-sm no"
-															style="background-color: #F8b03a; color: white;">안했어요</button>
+															style="background-color: #F8b03a; color: white;">안했어요</button> -->
+															<input type="text" class="form-control" value="${vo.petNeutering }">
 													</div>
 												</div>
-
+												</c:forEach>
 											</form>
 										</div>
 										<!-- /.tab-pane -->

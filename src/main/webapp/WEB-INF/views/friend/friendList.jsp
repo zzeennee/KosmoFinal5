@@ -255,8 +255,8 @@
 																class="fa-solid fa-trash-can"></i>
 															</a> <a href="#" class="btn btn-sm bg-teal"> <i
 																class="fa-solid fa-ban ban"></i>
-															</a> <a class="btn btn-sm btn-primary info"> <i
-																class="fas fa-user" content="${list[i].email}"></i>상세보기
+															</a> <a href="" class="btn btn-sm btn-primary info"
+																content="${list[i].email }"> <i class="fas fa-user"></i>상세보기
 															</a>
 														</div>
 													</div>
@@ -384,6 +384,7 @@
 	})
 	$('.info').click(function(e){
 		e.preventDefault()
+		alert($(this).attr('content'))
 		$('#userEmail').val($(this).attr('content'))
 		$('#frm').submit()
 	})

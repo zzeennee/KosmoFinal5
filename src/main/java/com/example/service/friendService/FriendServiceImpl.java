@@ -76,4 +76,8 @@ public class FriendServiceImpl implements FriendService {
 	public UserVO getUserInfo(UserVO vo) {
 		return userRepo.findById(vo.getUserEmail()).get();
 	}
+	
+	public List<PetVO> getUserInfoList(UserVO vo){
+		return petRepo.findByUser(userRepo.findById(vo.getUserEmail()).get());
+	}
 }

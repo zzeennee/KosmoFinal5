@@ -19,4 +19,6 @@ public interface FriendService {
 	
 	//친구 프로필 띄우기
 	UserVO getUserInfo(UserVO vo);
+	
+	List<PetVO> getUserInfoList(UserVO vo);
 }

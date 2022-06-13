@@ -73,6 +73,12 @@ public class FriendController {
 		
 		m.addAttribute("count", cnt);
 	}
+	
+	@RequestMapping("/getUserInfo")
+	public String getUserInfo(UserVO vo,Model m) {
+		m.addAttribute("getUserInfoList",service.getUserInfoList(vo) );    
+		return "/friend/friendProfile";
+	}
 
 	
 	
