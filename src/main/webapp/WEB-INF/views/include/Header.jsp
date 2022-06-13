@@ -64,6 +64,10 @@
 ul {
 	align-items: center;
 }
+
+#chatingRoom{
+	color: white;
+}
 </style>
 
 <script defer
@@ -97,44 +101,32 @@ ul {
 			</div>
 			<!-- 반응형 커팅선 -->
 
-			<div class="collapse navbar-collapse" id="lana-navbar" >
+			<div class="collapse navbar-collapse" id="lana-navbar">
 				<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><a class="nav-links daily"
+						href="/community/daily">일상공유</a></li>
 
-					<li class="nav-item dropdown"><a
-						class="nav-links dropdown-toggle comu " href="#"
-						id="page-dropdown" data-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false">커뮤니티</a>
-						<ul class="dropdown-menu" aria-labelledby="page-dropdown">
-							<li><a class="dropdown-item" href="/community/daily">일상공유</a></li>
-							<li><a class="dropdown-item" href="#">자원봉사</a></li>
-							<li><a class="dropdown-item" href="#">가정분양</a></li>
-							<li><a class="dropdown-item" href="#">물품나눔</a></li>
-							<li><a class="dropdown-item" href="#">행사</a></li>
-							<li><a class="dropdown-item" href="#">산책로</a></li>
-
-						</ul></li>
-
-					<li class="nav-item dropdown"><a
-						class="nav-links dropdown-toggle organi" href="#"
-						id="page-dropdown" data-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false">관련기관</a>
-						<ul class="dropdown-menu" aria-labelledby="page-dropdown">
-							<li><a class="dropdown-item" href="/agency/agencyHotel">애견호텔</a></li>
-							<li><a class="dropdown-item" href="/agency/agencyCafe">애견카페</a></li>
-							<li><a class="dropdown-item" href="/agency/agencyHospital">동물병원</a></li>
-							<li><a class="dropdown-item" href="/agency/agencyShelter">보호소</a></li>
-							<li><a class="dropdown-item" href="/agency/agencyHall">장례식장</a></li>
-						</ul></li>
+				<li class="nav-item dropdown"><a
+					class="nav-links dropdown-toggle organi" href="#"
+					id="page-dropdown" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false">관련기관</a>
+					<ul class="dropdown-menu" aria-labelledby="page-dropdown">
+						<li><a class="dropdown-item" href="/agency/agencyHotel">애견호텔</a></li>
+						<li><a class="dropdown-item" href="/agency/agencyCafe">애견카페</a></li>
+						<li><a class="dropdown-item" href="/agency/agencyHospital">동물병원</a></li>
+						<li><a class="dropdown-item" href="/agency/agencyShelter">보호소</a></li>
+						<li><a class="dropdown-item" href="/agency/agencyHall">장례식장</a></li>
+					</ul></li>
 
 
-					<li class="nav-item"><a class="nav-links info"
+				<li class="nav-item"><a class="nav-links info"
 						href="/agency/encyclopedia">반려견 사전</a></li>
-
-					<li class="nav-item"><c:if
-							test="${not empty sessionScope.userEmail }">
-							<a class="nav-links chat" id="chatingRoom"
-								style="cursor: pointer;">채팅방</a>
-						</c:if></li>
+					<c:if test="${not empty sessionScope.userEmail }">
+						<li class="nav-item"><a class="nav-links chat"
+							id="chatingRoom" style="cursor: pointer;">채팅방</a></li>
+						<li class="nav-item"><a class="nav-links walk"
+							href="/walk" style="cursor: pointer;">산책하기</a></li>
+					</c:if>
 				</ul>
 				<form action="/chating/room" method="post" id="chatingFrm">
 					<input type="hidden" name="userEmail"
@@ -166,6 +158,7 @@ ul {
 								환영합니다.</li>
 
 							<!-- 알림 추가 -->
+
 							<li class="nav-item dropdown"><a class="nav-link"
 
 								data-toggle="dropdown" href="#"> <i class="far fa-bell" style="color:ff8a00;"></i>
@@ -174,6 +167,16 @@ ul {
 							</a>
 								<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
 									<!-- <a class="dropdown-item" id="unreadMessageBtn"> <i
+
+							<li class="nav-item dropdown bell"><a class="nav-link"
+								data-toggle="dropdown" href="#"> <i class="far fa-bell"
+									style="color: ff8a00;"></i> <small><span
+										class="badge badge-warning navbar-badge">N</span></small>
+
+							</a>
+								<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right bell2">
+									<a class="dropdown-item" id="unreadMessageBtn"> <i
+
 										class="fas fa-envelope mr-2"></i> <label id="unreadMessage">0</label>
 										new messages
 									</a> -->
@@ -187,7 +190,7 @@ ul {
 										<c:choose>
 											<c:when test="${friendRequest != 0}">
 												<a href="/friend/friendRequestList" class="dropdown-item">
-											
+
 													<i class="fas fa-users mr-2"></i> <label
 													id="friendRequests">${friendRequest}</label> friend
 													requests
@@ -205,7 +208,7 @@ ul {
 								</div></li>
 							<!-- 알림 추가 끝 -->
 
-							<li class="nav-item"><a href="/myPage/logout"
+							<li class="nav-item"><a href="/myPage/logout" class="logout"
 								style="color: white;">Logout</a></li>
 						</c:if>
 
@@ -240,11 +243,11 @@ ul {
 			$(".organi").mouseleave(function() {
 				$(".organi").css("color", "white");
 			});
-			$(".comu").mouseover(function() {
-				$(".comu").css("color", "#f8b03a");
+			$(".daily").mouseover(function() {
+				$(".daily").css("color", "#f8b03a");
 			});
-			$(".comu").mouseleave(function() {
-				$(".comu").css("color", "white");
+			$(".daily").mouseleave(function() {
+				$(".daily").css("color", "white");
 			});
 			$(".info").mouseover(function() {
 				$(".info").css("color", "#f8b03a");
@@ -252,7 +255,22 @@ ul {
 			$(".info").mouseleave(function() {
 				$(".info").css("color", "white");
 			});
-
+			$(".walk").mouseover(function() {
+				$(".walk").css("color", "#f8b03a");
+			});
+			$(".walk").mouseleave(function() {
+				$(".walk").css("color", "white");
+			});
+			
+			
+			$(".logout").mouseover(function() {
+				$(".logout").css("color", "#f8b03a");
+			});
+			$(".logout").mouseleave(function() {
+				$(".logout").css("color", "white");
+			});
+			
+			
 			$(".btn-light").mouseover(function() {
 				$(".btn-light").css("color", "#f8b03a");
 			});
@@ -274,6 +292,24 @@ ul {
 			$('#unreadMessageBtn').click(function() {
 				$('#friendChating').submit()
 			})
+
+			$('.svg-inline--fa fa-bell fa-w-14').click(function(){
+				$('.dropdown-menu dropdown-menu-lg dropdown-menu-right').addClass()
+			})
+			
+			$('.bell').mouseover(function(){
+				$('.bell2').addClass("show");
+			})
+			$('.bell2').mouseover(function(){
+				$('.bell2').addClass("show");
+			})
+		
+			$('.bell2').mouseleave(function(){
+				setTimeout(function(){
+					$('.bell2').removeClass("show");
+				}, 1000);
+			})
+
 
 		});
 	</script>

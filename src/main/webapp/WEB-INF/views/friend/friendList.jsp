@@ -88,6 +88,18 @@
 	margin: 0;
 	white-space: inherit;
 }
+
+p{
+	display:inline;
+	font-size:15px;
+	margin:0;
+	white-space:noraml;
+	line-height: 1.8;
+	font-weight: 400;
+	color: black;
+}
+
+
 </style>
 
 </head>
